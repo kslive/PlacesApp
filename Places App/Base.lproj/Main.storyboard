@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--My Favorites-->
         <scene sceneID="evv-3J-gk1">
             <objects>
                 <tableViewController id="IJc-3d-MzX" customClass="MainViewController" customModule="Places_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                             <outlet property="delegate" destination="IJc-3d-MzX" id="Qo4-Tq-6nW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mAV-x0-t8e"/>
+                    <navigationItem key="navigationItem" title="My Favorites" id="mAV-x0-t8e"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OV-PC-Akt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
