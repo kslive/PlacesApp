@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Favorites-->
+        <!--Favorites-->
         <scene sceneID="evv-3J-gk1">
             <objects>
                 <tableViewController id="IJc-3d-MzX" customClass="MainViewController" customModule="Places_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="z9B-ON-Q2g"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -85,7 +85,7 @@
                             <outlet property="delegate" destination="IJc-3d-MzX" id="Qo4-Tq-6nW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Favorites" id="mAV-x0-t8e"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="mAV-x0-t8e"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OV-PC-Akt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
