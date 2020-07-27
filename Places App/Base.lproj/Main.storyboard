@@ -10,18 +10,74 @@
         <scene sceneID="evv-3J-gk1">
             <objects>
                 <tableViewController id="IJc-3d-MzX" customClass="MainViewController" customModule="Places_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIJ-ix-a0d">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIJ-ix-a0d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jck-V0-98f">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jck-V0-98f" customClass="CustomTableViewCell" customModule="Places_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jck-V0-98f" id="VjT-ME-6ac">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YZT-zg-KDF">
+                                            <rect key="frame" x="1" y="1.5" width="82" height="82.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="82" id="Hd6-TD-fAi"/>
+                                                <constraint firstAttribute="height" constant="82.5" id="hcV-jp-Zlh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axp-3V-1pr">
+                                            <rect key="frame" x="84" y="2" width="310" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="z9B-ON-Q2g"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K8-LV-iwD">
+                                            <rect key="frame" x="84" y="63" width="310" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Q2K-hh-Jaw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw8-bj-ec8">
+                                            <rect key="frame" x="84" y="32.5" width="310" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ro7-a9-Ect"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YZT-zg-KDF" firstAttribute="centerY" secondItem="VjT-ME-6ac" secondAttribute="centerY" id="1Xz-fG-tu5"/>
+                                        <constraint firstAttribute="trailing" secondItem="axp-3V-1pr" secondAttribute="trailing" constant="20" id="CC1-Gw-b8x"/>
+                                        <constraint firstAttribute="bottom" secondItem="7K8-LV-iwD" secondAttribute="bottom" constant="1" id="Oox-vA-e2i"/>
+                                        <constraint firstItem="7K8-LV-iwD" firstAttribute="leading" secondItem="YZT-zg-KDF" secondAttribute="trailing" constant="1" id="V9Z-jo-pE4"/>
+                                        <constraint firstItem="7K8-LV-iwD" firstAttribute="top" secondItem="Uw8-bj-ec8" secondAttribute="bottom" constant="9.5" id="bEH-0J-ykE"/>
+                                        <constraint firstItem="axp-3V-1pr" firstAttribute="leading" secondItem="YZT-zg-KDF" secondAttribute="trailing" constant="1" id="bgO-fN-azJ"/>
+                                        <constraint firstItem="axp-3V-1pr" firstAttribute="top" secondItem="VjT-ME-6ac" secondAttribute="top" constant="2" id="ogH-AZ-vjR"/>
+                                        <constraint firstAttribute="trailing" secondItem="7K8-LV-iwD" secondAttribute="trailing" constant="20" id="p3h-9M-gdX"/>
+                                        <constraint firstItem="Uw8-bj-ec8" firstAttribute="trailing" secondItem="VjT-ME-6ac" secondAttribute="trailingMargin" id="s8I-ct-Xoq"/>
+                                        <constraint firstItem="Uw8-bj-ec8" firstAttribute="top" secondItem="axp-3V-1pr" secondAttribute="bottom" constant="9.5" id="uRP-1a-1QW"/>
+                                        <constraint firstItem="YZT-zg-KDF" firstAttribute="leading" secondItem="VjT-ME-6ac" secondAttribute="leading" constant="1" id="uob-nG-2dr"/>
+                                        <constraint firstItem="Uw8-bj-ec8" firstAttribute="leading" secondItem="YZT-zg-KDF" secondAttribute="trailing" constant="1" id="xKp-0b-IgC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageOfPlaces" destination="YZT-zg-KDF" id="iOe-ny-oga"/>
+                                    <outlet property="locationLabel" destination="Uw8-bj-ec8" id="4VS-bS-aYk"/>
+                                    <outlet property="nameLabel" destination="axp-3V-1pr" id="zFQ-YQ-kT7"/>
+                                    <outlet property="typeLabel" destination="7K8-LV-iwD" id="2sF-kt-rkf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
