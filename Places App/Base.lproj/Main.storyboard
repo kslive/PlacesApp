@@ -266,6 +266,9 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageOfPlace" destination="aPA-zz-uyj" id="G3T-X9-Vjn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOa-kX-v63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gWd-Mj-X5X" userLabel="Exit" sceneMemberID="exit"/>
