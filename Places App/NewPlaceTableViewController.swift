@@ -10,7 +10,7 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
-    var newPlace: Place?
+    var newPlace = Place()
     var imageIsChanged = false
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -23,6 +23,10 @@ class NewPlaceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            self.newPlace.savePlaces()
+        }
+
         tableView.tableFooterView = UIView()
         
         saveButton.isEnabled = false
@@ -75,7 +79,7 @@ class NewPlaceTableViewController: UITableViewController {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-        newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, image: image, placesImage: nil)
+//        newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, image: image, placesImage: nil)
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
