@@ -10,6 +10,7 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
+    var currentPlace: Place?
     var imageIsChanged = false
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -25,6 +26,8 @@ class NewPlaceTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        
+        setupEditScreen()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,7 +65,7 @@ class NewPlaceTableViewController: UITableViewController {
         }
     }
     
-    func saveNewPlace() {
+    func savePlace() {
         
         var image: UIImage?
         
@@ -79,7 +82,16 @@ class NewPlaceTableViewController: UITableViewController {
                              type: placeType.text,
                              imageData: imageData)
         
-        StorageManager.saveObject(newPlace)
+        if currentPlace != nil {
+            try! realm.write {
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
+            }
+        } else {
+            StorageManager.saveObject(newPlace)
+        }
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
@@ -93,6 +105,36 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    private func setupEditScreen() {
+        
+        if currentPlace != nil {
+            
+            setupNavigationBar()
+            
+            imageIsChanged = true
+            
+            guard let data = currentPlace?.imageData, let image = UIImage(data: data) else { return }
+            
+            imageOfPlace.image = image
+            imageOfPlace.contentMode = .scaleAspectFill
+            
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
+        }
+    }
+    
+    private func setupNavigationBar() {
+        
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
     
     @objc private func textFieldChanged() {
