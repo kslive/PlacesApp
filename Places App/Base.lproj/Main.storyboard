@@ -21,6 +21,9 @@
                                 <segment title="Date"/>
                                 <segment title="A-Z"/>
                             </segments>
+                            <connections>
+                                <action selector="sortSelection:" destination="IJc-3d-MzX" eventType="valueChanged" id="lMf-Sz-zfv"/>
+                            </connections>
                         </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jck-V0-98f" customClass="CustomTableViewCell" customModule="Places_App" customModuleProvider="target">
@@ -95,7 +98,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="never" id="mAV-x0-t8e">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="ohe-m0-L8j"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="ohe-m0-L8j">
+                            <connections>
+                                <action selector="reversedSorting:" destination="IJc-3d-MzX" id="JGo-IP-7Dg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h7s-pB-khM">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -103,6 +110,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reverseSotringButton" destination="ohe-m0-L8j" id="3pd-MI-DH8"/>
+                        <outlet property="segmentedControl" destination="viT-Lr-fsZ" id="Tgq-t6-MJZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8OV-PC-Akt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

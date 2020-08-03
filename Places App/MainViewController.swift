@@ -12,7 +12,11 @@ import RealmSwift
 class MainViewController: UITableViewController {
     
     var places: Results<Place>!
-
+    var ascendingSorting = true
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var reverseSotringButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +52,7 @@ class MainViewController: UITableViewController {
     
 // Не работает в iOS 13.0>:
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
         let place = places[indexPath.row]
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
             StorageManager.deleteObject(place)
@@ -73,6 +78,35 @@ class MainViewController: UITableViewController {
         guard let newPlaceVC = segue.source as? NewPlaceTableViewController else { return }
         
         newPlaceVC.savePlace()
+        tableView.reloadData()
+    }
+    
+    @IBAction func sortSelection(_ sender: UISegmentedControl) {
+        
+        sorting()
+    }
+    
+    @IBAction func reversedSorting(_ sender: UIBarButtonItem) {
+
+        ascendingSorting.toggle()
+        
+        if ascendingSorting {
+            reverseSotringButton.image = #imageLiteral(resourceName: "AZ")
+        } else {
+            reverseSotringButton.image = #imageLiteral(resourceName: "ZA")
+        }
+        
+        sorting()
+    }
+    
+    private func sorting() {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            places = places.sorted(byKeyPath: "date", ascending: ascendingSorting)
+        } else {
+            places = places.sorted(byKeyPath: "name", ascending: ascendingSorting )
+        }
+        
         tableView.reloadData()
     }
 }
