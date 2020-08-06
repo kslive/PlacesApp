@@ -69,19 +69,15 @@ class NewPlaceTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showMap" else { return }
         let mapViewController = segue.destination as! MapViewController
-        mapViewController.place = currentPlace
+        mapViewController.place.name = placeName.text!
+        mapViewController.place.location = placeLocation.text!
+        mapViewController.place.type = placeType.text!
+        mapViewController.place.imageData = imageOfPlace.image?.pngData()
     }
     
     func savePlace() {
         
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = imageOfPlace.image
-        } else {
-            image = #imageLiteral(resourceName: "imagePlaceholder")
-        }
-        
+        let image = imageIsChanged ? imageOfPlace.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageData = image?.pngData()
         
         let newPlace = Place(name: placeName.text!,
