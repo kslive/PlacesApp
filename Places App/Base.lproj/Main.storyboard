@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -141,6 +142,17 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-zz-uyj">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-CI-ynN">
+                                                    <rect key="frame" x="344" y="189" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="1Bn-do-Xe4"/>
+                                                        <constraint firstAttribute="width" constant="50" id="YFb-kU-b80"/>
+                                                    </constraints>
+                                                    <state key="normal" image="map"/>
+                                                    <connections>
+                                                        <segue destination="hVG-uv-A4q" kind="presentation" identifier="showMap" modalPresentationStyle="fullScreen" id="y0r-7u-Pv9"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -148,6 +160,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="aPA-zz-uyj" secondAttribute="trailing" id="Bau-lN-2UB"/>
                                                 <constraint firstAttribute="bottom" secondItem="aPA-zz-uyj" secondAttribute="bottom" id="Tbv-OR-WpQ"/>
                                                 <constraint firstItem="aPA-zz-uyj" firstAttribute="top" secondItem="aPC-Ag-Qdd" secondAttribute="top" id="VkF-qE-OeW"/>
+                                                <constraint firstItem="ue5-CI-ynN" firstAttribute="trailing" secondItem="aPC-Ag-Qdd" secondAttribute="trailingMargin" id="dLa-eu-3qf"/>
+                                                <constraint firstItem="ue5-CI-ynN" firstAttribute="bottom" secondItem="aPC-Ag-Qdd" secondAttribute="bottomMargin" id="pLS-r5-yy5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -321,6 +335,45 @@
             </objects>
             <point key="canvasLocation" x="1699" y="145"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Kto-LO-hNk">
+            <objects>
+                <viewController id="hVG-uv-A4q" customClass="MapViewController" customModule="Places_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Un-H1-Vsq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LJF-5F-tva">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHY-4P-xID">
+                                <rect key="frame" x="364" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RPu-A8-pIY"/>
+                                    <constraint firstAttribute="width" constant="30" id="cN2-3B-ObZ"/>
+                                </constraints>
+                                <state key="normal" image="camcel"/>
+                                <connections>
+                                    <action selector="closeMapViewController" destination="hVG-uv-A4q" eventType="touchUpInside" id="LFf-CV-FWl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="LJF-5F-tva" secondAttribute="bottom" id="FJO-E1-vyn"/>
+                            <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="GHY-4P-xID" secondAttribute="trailing" constant="20" id="Odc-ir-PfU"/>
+                            <constraint firstItem="GHY-4P-xID" firstAttribute="top" secondItem="aNc-zI-DQI" secondAttribute="top" id="Z5U-94-aB0"/>
+                            <constraint firstItem="LJF-5F-tva" firstAttribute="leading" secondItem="aNc-zI-DQI" secondAttribute="leading" id="d3j-cy-GRU"/>
+                            <constraint firstItem="LJF-5F-tva" firstAttribute="trailing" secondItem="aNc-zI-DQI" secondAttribute="trailing" id="fwo-Gm-F0f"/>
+                            <constraint firstItem="LJF-5F-tva" firstAttribute="top" secondItem="6Un-H1-Vsq" secondAttribute="top" id="hVP-t1-Vfg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aNc-zI-DQI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-ha-mng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2459" y="145"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSv-RJ-Pz7">
             <objects>
@@ -364,5 +417,7 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="camcel" width="128" height="128"/>
+        <image name="map" width="50" height="50"/>
     </resources>
 </document>
