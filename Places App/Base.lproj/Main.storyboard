@@ -268,6 +268,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="XV7-R5-7jd">
+                                        <rect key="frame" x="0.0" y="503" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XV7-R5-7jd" id="gTd-vL-DTq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="260" placeholderIntrinsicHeight="44" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aBO-hR-ntz" customClass="RatingControl" customModule="Places_App" customModuleProvider="target">
+                                                    <rect key="frame" x="77" y="48" width="260" height="44"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aBO-hR-ntz" firstAttribute="centerX" secondItem="gTd-vL-DTq" secondAttribute="centerX" id="T2K-ih-ycQ"/>
+                                                <constraint firstItem="aBO-hR-ntz" firstAttribute="centerY" secondItem="gTd-vL-DTq" secondAttribute="centerY" id="T9g-TM-5B2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
