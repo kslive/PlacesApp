@@ -357,15 +357,28 @@
                                     <action selector="closeMapViewController" destination="hVG-uv-A4q" eventType="touchUpInside" id="LFf-CV-FWl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW9-9Y-YeC">
+                                <rect key="frame" x="344" y="812" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="g1d-iX-0Uc"/>
+                                    <constraint firstAttribute="height" constant="50" id="qA3-gL-lQ2"/>
+                                </constraints>
+                                <state key="normal" image="Location"/>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="hVG-uv-A4q" eventType="touchUpInside" id="4ll-eR-anQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LJF-5F-tva" secondAttribute="bottom" id="FJO-E1-vyn"/>
                             <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="GHY-4P-xID" secondAttribute="trailing" constant="20" id="Odc-ir-PfU"/>
                             <constraint firstItem="GHY-4P-xID" firstAttribute="top" secondItem="aNc-zI-DQI" secondAttribute="top" id="Z5U-94-aB0"/>
+                            <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="lW9-9Y-YeC" secondAttribute="trailing" constant="20" id="Znl-kX-m4e"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="leading" secondItem="aNc-zI-DQI" secondAttribute="leading" id="d3j-cy-GRU"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="trailing" secondItem="aNc-zI-DQI" secondAttribute="trailing" id="fwo-Gm-F0f"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="top" secondItem="6Un-H1-Vsq" secondAttribute="top" id="hVP-t1-Vfg"/>
+                            <constraint firstItem="lW9-9Y-YeC" firstAttribute="bottom" secondItem="aNc-zI-DQI" secondAttribute="bottom" id="nLr-Rx-Zy9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aNc-zI-DQI"/>
                     </view>
@@ -419,6 +432,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="Location" width="128" height="128"/>
         <image name="Photo" width="195" height="196"/>
         <image name="camcel" width="128" height="128"/>
         <image name="map" width="50" height="50"/>

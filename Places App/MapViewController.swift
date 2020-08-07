@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
     let location = CLLocationManager()
+    let regionInMeters = 10_000.00
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,6 +31,14 @@ class MapViewController: UIViewController {
         
         dismiss(animated: true)
     }
+    
+    @IBAction func centerViewInUserLocation() {
+        if let location = location.location?.coordinate {
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    
     
     private func setupPlacemark() {
         
@@ -63,7 +72,9 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            // show alert
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Location are Disabled", message: "Settings -> Privacy -> Location Services and turn On")
+            }
         }
     }
     
@@ -80,7 +91,9 @@ class MapViewController: UIViewController {
             mapView.showsUserLocation = true
             break
         case .denied:
-            // show alert
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Location is not Availtble", message: "Settings -> Places App -> Location")
+            }
             break
         case .notDetermined:
             location.requestWhenInUseAuthorization()
@@ -91,6 +104,15 @@ class MapViewController: UIViewController {
         @unknown default:
             print("New case")
         }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default)
+        
+        alert.addAction(alertAction)
+        present(alert, animated: true)
     }
 }
 
