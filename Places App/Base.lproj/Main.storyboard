@@ -212,16 +212,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="68J-hg-mF1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olb-Jw-QDN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="17.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="  Place location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Qz-7d-qS3">
-                                                            <rect key="frame" x="0.0" y="38.5" width="414" height="36.5"/>
+                                                            <rect key="frame" x="0.0" y="38.5" width="374" height="36.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             <connections>
@@ -234,12 +234,25 @@
                                                         <constraint firstAttribute="trailing" secondItem="7Qz-7d-qS3" secondAttribute="trailing" id="Iiv-sX-Om9"/>
                                                     </constraints>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xD-Wr-Rwn">
+                                                    <rect key="frame" x="374" y="27" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="cNn-jm-jzW"/>
+                                                        <constraint firstAttribute="width" constant="20" id="e4D-mm-cKD"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Placeholder"/>
+                                                    <connections>
+                                                        <segue destination="hVG-uv-A4q" kind="presentation" identifier="getAdress" modalPresentationStyle="fullScreen" id="vH1-dn-ydk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="1xD-Wr-Rwn" firstAttribute="leading" secondItem="68J-hg-mF1" secondAttribute="trailing" id="4bn-Qa-ddH"/>
                                                 <constraint firstItem="68J-hg-mF1" firstAttribute="top" secondItem="hp8-Cc-3Ly" secondAttribute="top" id="8Wv-fa-b6H"/>
                                                 <constraint firstItem="68J-hg-mF1" firstAttribute="leading" secondItem="hp8-Cc-3Ly" secondAttribute="leading" id="H6g-T9-e00"/>
-                                                <constraint firstAttribute="trailing" secondItem="68J-hg-mF1" secondAttribute="trailing" id="fZs-Q2-Rtk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1xD-Wr-Rwn" secondAttribute="bottom" constant="17" id="Wrn-F3-tTb"/>
                                                 <constraint firstAttribute="bottom" secondItem="68J-hg-mF1" secondAttribute="bottom" id="lUq-lN-cV2"/>
+                                                <constraint firstItem="1xD-Wr-Rwn" firstAttribute="trailing" secondItem="hp8-Cc-3Ly" secondAttribute="trailingMargin" id="pWK-zq-tVI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -333,7 +346,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOa-kX-v63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gWd-Mj-X5X" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1699" y="145"/>
+            <point key="canvasLocation" x="1698.5507246376812" y="144.64285714285714"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Kto-LO-hNk">
@@ -368,27 +381,61 @@
                                     <action selector="centerViewInUserLocation" destination="hVG-uv-A4q" eventType="touchUpInside" id="4ll-eR-anQ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pin" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-A8-0CE">
+                                <rect key="frame" x="187" y="408" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="4J3-H8-trE"/>
+                                    <constraint firstAttribute="height" constant="40" id="Sme-PZ-c3a"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nie-yt-SJ0">
+                                <rect key="frame" x="5" y="144" width="404" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chk-4D-VkK">
+                                <rect key="frame" x="30" y="764" width="354" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="donePressed" destination="hVG-uv-A4q" eventType="touchUpInside" id="HJ9-2A-A4t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="nie-yt-SJ0" firstAttribute="top" secondItem="aNc-zI-DQI" secondAttribute="top" constant="100" id="7sa-Ir-4xK"/>
                             <constraint firstAttribute="bottom" secondItem="LJF-5F-tva" secondAttribute="bottom" id="FJO-E1-vyn"/>
                             <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="GHY-4P-xID" secondAttribute="trailing" constant="20" id="Odc-ir-PfU"/>
+                            <constraint firstItem="aNc-zI-DQI" firstAttribute="bottom" secondItem="chk-4D-VkK" secondAttribute="bottom" constant="50" id="PiL-OH-gqS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="chk-4D-VkK" secondAttribute="trailing" constant="10" id="VCS-Sj-PcW"/>
+                            <constraint firstItem="fFR-A8-0CE" firstAttribute="centerX" secondItem="6Un-H1-Vsq" secondAttribute="centerX" id="VoE-wk-nTL"/>
                             <constraint firstItem="GHY-4P-xID" firstAttribute="top" secondItem="aNc-zI-DQI" secondAttribute="top" id="Z5U-94-aB0"/>
                             <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="lW9-9Y-YeC" secondAttribute="trailing" constant="20" id="Znl-kX-m4e"/>
+                            <constraint firstItem="fFR-A8-0CE" firstAttribute="centerY" secondItem="6Un-H1-Vsq" secondAttribute="centerY" constant="-20" id="b0W-Zf-qq1"/>
+                            <constraint firstItem="chk-4D-VkK" firstAttribute="leading" secondItem="6Un-H1-Vsq" secondAttribute="leadingMargin" constant="10" id="cbO-bl-PrB"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="leading" secondItem="aNc-zI-DQI" secondAttribute="leading" id="d3j-cy-GRU"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="trailing" secondItem="aNc-zI-DQI" secondAttribute="trailing" id="fwo-Gm-F0f"/>
                             <constraint firstItem="LJF-5F-tva" firstAttribute="top" secondItem="6Un-H1-Vsq" secondAttribute="top" id="hVP-t1-Vfg"/>
+                            <constraint firstItem="aNc-zI-DQI" firstAttribute="trailing" secondItem="nie-yt-SJ0" secondAttribute="trailing" constant="5" id="kt2-Uu-mOm"/>
                             <constraint firstItem="lW9-9Y-YeC" firstAttribute="bottom" secondItem="aNc-zI-DQI" secondAttribute="bottom" id="nLr-Rx-Zy9"/>
+                            <constraint firstItem="nie-yt-SJ0" firstAttribute="leading" secondItem="aNc-zI-DQI" secondAttribute="leading" constant="5" id="qzq-aP-gM7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aNc-zI-DQI"/>
                     </view>
                     <connections>
+                        <outlet property="currentAdressLabel" destination="nie-yt-SJ0" id="BWH-QI-z32"/>
+                        <outlet property="doneButton" destination="chk-4D-VkK" id="Vch-lB-wAe"/>
+                        <outlet property="mapPinImage" destination="fFR-A8-0CE" id="2xc-Gg-78q"/>
                         <outlet property="mapView" destination="LJF-5F-tva" id="nkm-v0-5Wj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-ha-mng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2459" y="145"/>
+            <point key="canvasLocation" x="2457.971014492754" y="144.64285714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSv-RJ-Pz7">
@@ -428,12 +475,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vH1-dn-ydk"/>
         <segue reference="9yM-YH-m2N"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Location" width="128" height="128"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="Pin" width="42" height="42"/>
+        <image name="Placeholder" width="22" height="22"/>
         <image name="camcel" width="128" height="128"/>
         <image name="map" width="50" height="50"/>
     </resources>
