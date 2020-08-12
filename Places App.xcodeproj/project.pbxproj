@@ -75,21 +75,61 @@
 		6B956DC424CEBB26005D3848 /* Places App */ = {
 			isa = PBXGroup;
 			children = (
-				6B956DC524CEBB26005D3848 /* AppDelegate.swift */,
-				6B956DC724CEBB26005D3848 /* SceneDelegate.swift */,
+				6BB6860D24E3D31B00730AC4 /* ViewControllers */,
+				6BB6860F24E3D36D00730AC4 /* Helpers */,
+				6BB6860E24E3D35A00730AC4 /* Models */,
+				6BB6861024E3D38C00730AC4 /* Support Files */,
+				6BB6861124E3D3B200730AC4 /* IBuilder */,
+			);
+			path = "Places App";
+			sourceTree = "<group>";
+		};
+		6BB6860D24E3D31B00730AC4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				6B956DD924CEBB72005D3848 /* MainViewController.swift */,
 				6B956DDF24CF0056005D3848 /* NewPlaceTableViewController.swift */,
 				6BB1DD5324DC1E2800DB4352 /* MapViewController.swift */,
-				6BB1DD5124DBD46000DB4352 /* RatingControl.swift */,
 				6B956DDB24CED816005D3848 /* CustomTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6BB6860E24E3D35A00730AC4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				6B956DDD24CEE979005D3848 /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6BB6860F24E3D36D00730AC4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
 				6BA4E7D224D047BC0082C24A /* StorageManager.swift */,
-				6B956DCB24CEBB26005D3848 /* Main.storyboard */,
+				6BB1DD5124DBD46000DB4352 /* RatingControl.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6BB6861024E3D38C00730AC4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B956DC524CEBB26005D3848 /* AppDelegate.swift */,
+				6B956DC724CEBB26005D3848 /* SceneDelegate.swift */,
 				6B956DCE24CEBB27005D3848 /* Assets.xcassets */,
-				6B956DD024CEBB27005D3848 /* LaunchScreen.storyboard */,
 				6B956DD324CEBB27005D3848 /* Info.plist */,
 			);
-			path = "Places App";
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		6BB6861124E3D3B200730AC4 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				6B956DCB24CEBB26005D3848 /* Main.storyboard */,
+				6B956DD024CEBB27005D3848 /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
 			sourceTree = "<group>";
 		};
 		7D70DB2127700FA1D15DD62C /* Frameworks */ = {
@@ -379,7 +419,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = "Places App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Places App/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,7 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = "Places App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Places App/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
